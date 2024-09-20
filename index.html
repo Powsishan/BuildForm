@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metena</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <div id="container" class="  flex">
+        <!-- sidebar -->
+        <div class="flex flex-col w-1/5 p-5 h-screen">
+            <div id="home-setting" class="home-setting hidden">
+                <div class="flex">
+                    <div class="flex flex-col w-full h-screen">
+                        <div class="flex  ">
+                            <div class="flex items-center h-full"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+                            </div>
+
+                            <span class="font-semibold text-sm ml-3">Setting</span>
+
+                            <button id="home-close"
+                                class="border border-gray-200 rounded ml-auto  hover:bg-gray-100 transition duration-150">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="gray" class="w-6 h-6 ">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
+
+
+
+                        </div>
+                        <div class="flex flex-col ">
+                            <div class="flex gap-2 my-1 text-sm flex-col items-start">
+                                <p class="text-sm font-medium">Title</p>
+                                <input id="title-input"
+                                    class="w-full  p-2 border border-gray-300 rounded-md focus:border-black focus:outline-none"
+                                    value="Welcome to our form">
+                                <p class="text-sm font-medium">Description</p>
+                                <input id="description-input"
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:border-black focus:outline-none"
+                                    value="This is a description of the form">
+                                <p class="text-sm font-medium">Button Text</p>
+                                <input id="button-input"
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:border-black focus:outline-none"
+                                    value="Start">
+                                <!-- add image -->
+
+
+                                <button id="upload-btn"
+                                    class="flex items-center gap-2 p-1 font-medium border border-gray-300 rounded-md focus:border-black focus:outline-none hover:border-black">
+                                    <span role="img" aria-label="upload" class="anticon anticon-upload">
+                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="upload" width="1em"
+                                            height="1em" fill="currentColor" aria-hidden="true">
+                                            <path
+                                                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z">
+                                            </path>
+                                        </svg>
+                                    </span>Upload
+                                </button>
+                                <input type="file" accept="image/*" id="file-input" class="hidden">
+
+                                <div id="image-preview-container" class="mt-4 hidden">
+                                    <img id="image-preview" src="" alt="Image Preview"
+                                        class="h-auto max-w-full border border-gray-300 rounded-lg">
+                                    <button id="remove-image"
+                                        class="p-1 mt-2 font-medium border border-gray-300 rounded-md focus:border-black focus:outline-none hover:border-black">Remove
+                                        Image</button>
+                                </div>
+
+                                <!-- Placement buttons -->
+                                <div id="placement-buttons" class="flex items-center gap-2 hidden">
+                                    <p class="text-sm font-medium">Placement</p>
+                                    <button id="flex-button"
+                                        class="p-1 border border-gray-300 rounded-md focus:border-black focus:outline-none hover:border-black">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20"
+                                            viewBox="0 0 28 20" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M14 1C14 0.447715 14.4477 0 15 0H26C27.1046 0 28 0.895431 28 2V18C28 19.1046 27.1046 20 26 20H15C14.4477 20 14 19.5523 14 19V1ZM3 11.75C3 11.3358 3.33579 11 3.75 11H8.25C8.66421 11 9 11.3358 9 11.75C9 12.1642 8.66421 12.5 8.25 12.5H3.75C3.33579 12.5 3 12.1642 3 11.75ZM3.75 8C3.33579 8 3 8.33579 3 8.75C3 9.16421 3.33579 9.5 3.75 9.5H10.25C10.6642 9.5 11 9.16421 11 8.75C11 8.33579 10.6642 8 10.25 8H3.75Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </button>
+                                    <button id="flex-col-button"
+                                        class="p-1 border border-gray-300 rounded-md focus:border-black focus:outline-none hover:border-black">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20"
+                                            viewBox="0 0 28 20" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 2C0 0.895431 0.895431 0 2 0H13C13.5523 0 14 0.447716 14 1V19C14 19.5523 13.5523 20 13 20H2C0.895431 20 0 19.1046 0 18V2ZM17 11.75C17 11.3358 17.3358 11 17.75 11H22.25C22.6642 11 23 11.3358 23 11.75C23 12.1642 22.6642 12.5 22.25 12.5H17.75C17.3358 12.5 17 12.1642 17 11.75ZM17.75 8C17.3358 8 17 8.33579 17 8.75C17 9.16421 17.3358 9.5 17.75 9.5H24.25C24.6642 9.5 25 9.16421 25 8.75C25 8.33579 24.6642 8 24.25 8H17.75Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-center w-full gap-4 mt-6">
+                                    <button id="save-button"
+                                        class="whitespace-nowrap ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:bg-zinc-700 bg-black   hover:bg-gray-700 transition duration-150 rounded-lg py-2.5 px-2 w-full text-white text-xs font-medium flex items-center justify-center h-9">Save</button>
+                                    <button
+                                        class="flex items-center justify-center w-full p-2 text-xs font-medium rounded-lg hover:bg-red-100 text-red-500 transition duration-150">Discard</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="email-setting" class="email-setting hidden">
+                <div class="flex">
+                    <div class="flex flex-col w-full h-screen">
+                        <div class="flex  ">
+                            <div class="flex items-center h-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+                            </div>
+
+                            <span class="font-semibold text-sm ml-3">Setting</span>
+
+                            <button id="home-close2"
+                                class="border border-gray-200 rounded ml-auto  hover:bg-gray-100 transition duration-150">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="gray" class="w-6 h-6 ">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
+
+
+
+                        </div>
+                        <div class="flex flex-col ">
+                            <div class="flex gap-2 my-1 text-sm flex-col items-start">
+                                <p class="text-sm font-medium">Title</p>
+                                <input id="title-input"
+                                    class="w-full  p-2 border border-gray-300 rounded-md focus:border-black focus:outline-none"
+                                    value="">
+                                <p class="text-sm font-medium">Description</p>
+                                <input id="description-input"
+                                    class="w-full p-2 border border-gray-300 rounded-md focus:border-black focus:outline-none"
+                                    value="">
+                                <div class="flex gap-2 my-1 flex-wrap text-sm w-full justify-between items-center">
+                                    <p class="text-sm font-medium">required</p>
+                                    <button id="toggle-switch" type="button" role="switch" aria-checked="false"
+                                        class="relative ml-auto w-12 h-6 bg-gray-300 rounded-full transition duration-300 focus:outline-none">
+                                        <span
+                                            class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition transform duration-300 justify-end "></span>
+                                    </button>
+
+                                </div>
+                                <div class="flex items-center justify-center w-full gap-4 mt-6">
+                                    <button id="save-button"
+                                        class="whitespace-nowrap ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:bg-zinc-700 bg-black   hover:bg-gray-700 transition duration-150 rounded-lg py-2.5 px-2 w-full text-white text-xs font-medium flex items-center justify-center h-9">Save</button>
+                                    <button
+                                        class="flex items-center justify-center w-full p-2 text-xs font-medium rounded-lg hover:bg-red-100 text-red-500 transition duration-150">Discard</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="sidebar" class="sidebar flex flex-col h-full">
+
+                <div class="flex space-x-4 w-full bg-gray-100 p-2 text-xs rounded-lg">
+                    <!-- Selected button -->
+                    <button
+                        class="text-gray-900 bg-white font-semibold hover:bg-gray-200 hover:scale-105 px-2 py-1 rounded transition transform duration-200">
+                        Content
+                    </button>
+                    <!-- Unselected buttons -->
+                    <button
+                        class="text-gray-500 hover:bg-gray-200 hover:scale-105 px-2 py-1 rounded transition transform duration-200">
+                        Design
+                    </button>
+                    <button
+                        class="text-gray-500 hover:bg-gray-200 hover:scale-105 px-2 py-1 rounded transition transform duration-200">
+                        Share
+                    </button>
+                    <button
+                        class="text-gray-500 hover:bg-gray-200 hover:scale-105 px-2 py-1 rounded transition transform duration-200">
+                        Replies
+                    </button>
+                </div>
+                <div class="flex mt-8 mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                    </svg>
+                    <span class="ml-2 font-semibold not-italic text-black text-sm leading-5">
+                        Steps</span>
+
+                    </span>
+
+                </div>
+                <span class="not-italic font-normal text-[rgb(113,113,122)] text-xs leading-4">The steps users will take
+                    to complete the form</span>
+                <!-- welcome screen  -->
+                <div class="flex flex-col mt-4">
+                    <button id="home-setting-button" class="bg-gray-50 p-3   w-9/10 rounded-xl shadow-sm  flex items-center justify-center mb-2 
+                          active:scale-[.98] active:duration-75 hover:scale-[1.01] hover:bg-gray-100 
+                          ease-in-out transition-all">
+                        <!-- Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true" data-slot="icon" class="text-gray-500 h-2.5 w-2.5 mr-2">
+                            <path fill-rule="evenodd"
+                                d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm5-2.25A.75.75 0 0 1 7.75 7h4.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-.75.75h-4.5a.75.75 0 0 1-.75-.75v-4.5Z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+
+                        <!-- Button Text -->
+                        <span class="flex-1 text-center not-italic font-normal  text-xs leading-4 ">Welcome
+                            screen</span>
+                    </button>
+                    <!-- Email -->
+                    <button id="email-setting-button" class="bg-gray-50 p-3  w-9/10 rounded-xl shadow-sm  flex items-center justify-center mb-2 
+                          active:scale-[.98] active:duration-75 hover:scale-[1.01] hover:bg-gray-100 
+                          ease-in-out transition-all">
+                        <svg class="text-zinc-400 h-2.5 w-2.5" fill="currentColor" viewBox="0 0 8 13"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.5 0C0.671631 0 0 0.671539 0 1.5C0 2.32846 0.671631 3 1.5 3C2.32837 3 3 2.32846 3 1.5C3 0.671539 2.32837 0 1.5 0Z">
+                            </path>
+                            <path
+                                d="M6.5 0C5.67163 0 5 0.671539 5 1.5C5 2.32846 5.67163 3 6.5 3C7.32837 3 8 2.32846 8 1.5C8 0.671539 7.32837 0 6.5 0Z">
+                            </path>
+                            <path
+                                d="M1.5 5C0.671631 5 0 5.67154 0 6.5C0 7.32846 0.671631 8 1.5 8C2.32837 8 3 7.32846 3 6.5C3 5.67154 2.32837 5 1.5 5Z">
+                            </path>
+                            <path
+                                d="M6.5 5C5.67163 5 5 5.67154 5 6.5C5 7.32846 5.67163 8 6.5 8C7.32837 8 8 7.32846 8 6.5C8 5.67154 7.32837 5 6.5 5Z">
+                            </path>
+                            <path
+                                d="M1.5 10C0.671631 10 0 10.6715 0 11.5C0 12.3285 0.671631 13 1.5 13C2.32837 13 3 12.3285 3 11.5C3 10.6715 2.32837 10 1.5 10Z">
+                            </path>
+                            <path
+                                d="M6.5 10C5.67163 10 5 10.6715 5 11.5C5 12.3285 5.67163 13 6.5 13C7.32837 13 8 12.3285 8 11.5C8 10.6715 7.32837 10 6.5 10Z">
+                            </path>
+                        </svg>
+
+                        <span class="flex-1 not-italic font-normal  text-xs leading-4 text-center">Email</span>
+                    </button>
+
+
+                </div>
+                <!-- Add Field -->
+                <div>
+                    <button
+                        class="inline-flex mt-1  items-center border border-gray-200 rounded-lg gap-0.5 px-2 py-1 hover:bg-gray-100 hover:scale-[1.01]">
+                        <!-- Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-3 h-3 text-gray-500 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+
+                        <!-- Text -->
+                        <span class="font-medium text-gray-900 text-xs leading-4">Add field</span>
+                    </button>
+
+
+                </div>
+                <!-- End screen -->
+                <div class="flex items-center  h-screen">
+                    <button class="bg-gray-50 p-3 w-full rounded-xl shadow-sm flex items-center justify-center mb-2 
+                      active:scale-[.98] active:duration-75 hover:scale-[1.01] hover:bg-gray-100 
+                      ease-in-out transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true" data-slot="icon" class="text-gray-500 h-2.5 w-2.5 mr-2">
+                            <path fill-rule="evenodd"
+                                d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm5-2.25A.75.75 0 0 1 7.75 7h4.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-.75.75h-4.5a.75.75 0 0 1-.75-.75v-4.5Z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+
+                        <span class="flex-1 not-italic font-normal text-xs leading-4 text-center">End screen</span>
+                    </button>
+                </div>
+
+
+
+                <div class="flex flex-col mt-auto  ">
+                    <div class="flex gap-2 mt-auto">
+                        <button
+                            class="whitespace-nowrap ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:bg-gray-700 bg-black hover:bg-gray-800 transition duration-150 rounded-lg py-2.5 px-2 w-full text-white text-xs font-medium flex items-center justify-center h-9">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true" class="w-3 h-3 mr-2">
+                                <path
+                                    d="M1 12.5A4.5 4.5 0 0 0 5.5 17H15a4 4 0 0 0 1.866-7.539 3.504 3.504 0 0 0-4.504-4.272A4.5 4.5 0 0 0 4.06 8.235 4.502 4.502 0 0 0 1 12.5Z">
+                                </path>
+                            </svg>
+                            Save & Publish
+                        </button>
+
+                        <button
+                            class="flex items-center justify-center w-full p-2 text-xs font-medium rounded-lg hover:bg-red-100 text-red-500 transition duration-150">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true" class="w-3 h-3 mr-1">
+                                <path fill-rule="evenodd"
+                                    d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Delete
+                        </button>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- main content -->
+        <div id="content" class="w-4/5 p-5 h-screen relative">
+            <div id="flex" class="flex bg-black h-full rounded-xl items-center">
+                <div id="content-div" class="w-1/2 justify-center items-center px-2">
+                    <div id="dynamic-padding" class="px-32"> <!-- Default px-32 -->
+                        <h1 id="title-display" class="text-white font-sans font-bold text-4xl leading-tight mb-1">
+                            Welcome to our form</h1>
+                        <p id="description-display" class="text-white text-2xl mb-1">This is a description of the form
+                        </p>
+                        <div>
+                            <button id="button-display"
+                                class="mt-2 bg-white rounded-2xl px-4 py-2 w-auto">Start</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="image-div" class="w-1/2 justify-center items-center">
+                    <img id="form-image" src="" class="h-5/6" alt="Uploaded Image">
+                </div>
+            </div>
+
+
+
+            <div id="flex-col" class="hidden flex flex-col bg-black h-full rounded-xl items-center p-10">
+                <div id="image-div" class="w-3/4 justify-center items-center">
+                    <img id="form-image-col" src="" class="" alt="Uploaded Image">
+                </div>
+                <div id="content-div" class="w-3/4 justify-center items-center px-2 pt-8">
+                    <div class=""> <!-- Default px-32 -->
+                        <h1 id="title-display" class="text-white font-sans font-bold text-4xl leading-tight mb-1">
+                            Welcome to our form</h1>
+                        <p id="description-display" class="text-white text-2xl mb-1">This is a description of the form
+                        </p>
+                        <div>
+                            <button id="button-display"
+                                class="mt-2 bg-white rounded-2xl px-4 py-2 w-auto">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+
+
+        // Elements
+        const flexButton = document.getElementById('flex-button');
+        const flexColButton = document.getElementById('flex-col-button');
+        const flexDiv = document.getElementById('flex');
+        const flexColDiv = document.getElementById('flex-col');
+        const placementButtons = document.getElementById('placement-buttons');
+
+        // Show placement buttons when the image is uploaded
+        // Call this wherever you handle image upload
+
+        // Event listeners for placement buttons
+        flexButton.addEventListener('click', function () {
+            flexDiv.classList.remove('hidden');
+            flexColDiv.classList.add('hidden');
+        });
+
+        flexColButton.addEventListener('click', function () {
+            flexDiv.classList.add('hidden');
+            flexColDiv.classList.remove('hidden');
+        });
+
+
+
+
+
+
+
+
+        // Elements
+        const uploadBtn = document.getElementById('upload-btn');
+        const fileInput = document.getElementById('file-input');
+        const imagePreviewContainer = document.getElementById('image-preview-container');
+
+        const imagePreview = document.getElementById('image-preview');
+        const imageDiv2 = document.getElementById('form-image-col');
+        const imageHome = document.getElementById('form-image');
+
+        const removeImageBtn = document.getElementById('remove-image');
+
+        // Function to check if the image is provided
+        function checkImageVisibility() {
+            const imgSrc = imageHome.getAttribute('src');
+            const contentDiv = document.getElementById('content-div');
+            const imageDiv = document.getElementById('image-div');
+
+            // const imageDiv2 = document.getElementById('form-image-col');
+            const dynamicPadding = document.getElementById('dynamic-padding');
+
+
+            // If the image src is empty, hide the image div and set content div to full width
+            if (!imgSrc || imgSrc === "") {
+                contentDiv.style.width = '100%';
+                imageDiv.style.display = 'none';
+                dynamicPadding.classList.remove('px-28'); // Remove px-28 if it exists
+                dynamicPadding.classList.add('px-32');
+            } else {
+                // If there is an image, ensure the image div is visible
+                imageDiv.style.display = 'block'; // or 'flex', depending on your layout
+                dynamicPadding.classList.remove('px-32'); // Remove px-32 if it exists
+                dynamicPadding.classList.add('px-28');
+                contentDiv.style.width = '50%';
+
+            }
+        }
+
+        // Upload button triggers file input click
+        uploadBtn.addEventListener('click', function () {
+            fileInput.click();
+        });
+
+        // Handle image selection and display
+        fileInput.addEventListener('change', function () {
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result; // Set the image preview
+                    imageHome.src = e.target.result; // Set the image Home
+                    imageDiv2.src = e.target.result;
+                    imagePreviewContainer.classList.remove('hidden'); // Show image preview
+                    placementButtons.classList.remove('hidden'); // Show placement buttons
+
+                    checkImageVisibility(); // Check if the image should be shown
+                };
+                reader.readAsDataURL(fileInput.files[0]); // Read the selected file
+            }
+        });
+
+        // Remove image button functionality
+        removeImageBtn.addEventListener('click', function () {
+            fileInput.value = ''; // Clear the file input
+            imagePreview.src = ''; // Clear the image preview
+            imageHome.src = '';
+
+            imagePreviewContainer.classList.add('hidden'); // Hide image preview
+            placementButtons.classList.add('hidden'); // Hide placement buttons
+
+            checkImageVisibility(); // Check if the image should be hidden
+        });
+
+        // Initial check for image visibility on page load
+        checkImageVisibility();
+
+
+
+
+
+
+
+
+
+        const toggleSwitch = document.getElementById('toggle-switch');
+
+        toggleSwitch.addEventListener('click', function () {
+            // Check the current state of the aria-checked attribute
+            const isChecked = toggleSwitch.getAttribute('aria-checked') === 'true';
+
+            // Toggle the aria-checked attribute
+            toggleSwitch.setAttribute('aria-checked', !isChecked);
+
+            // Toggle the button's visual appearance based on the state
+            if (isChecked) {
+                toggleSwitch.classList.remove('bg-blue-500');
+                toggleSwitch.classList.add('bg-gray-300');
+                toggleSwitch.querySelector('span').classList.remove('translate-x-6');
+            } else {
+                toggleSwitch.classList.remove('bg-gray-300');
+                toggleSwitch.classList.add('bg-blue-500');
+                toggleSwitch.querySelector('span').classList.add('translate-x-6');
+            }
+        });
+
+
+        window.onload = function () {
+            // Live update home page
+            const titleInput = document.getElementById('title-input');
+            const titleDisplay = document.getElementById('title-display');
+
+            titleInput.addEventListener('input', function () {
+                titleDisplay.textContent = titleInput.value;
+            });
+
+            const descriptionInput = document.getElementById('description-input');
+            const descriptionDisplay = document.getElementById('description-display');
+
+            descriptionInput.addEventListener('input', function () {
+                descriptionDisplay.textContent = descriptionInput.value;
+            });
+
+            const buttonInput = document.getElementById('button-input');
+            const buttonDisplay = document.getElementById('button-display');
+
+            buttonInput.addEventListener('input', function () {
+                buttonDisplay.textContent = buttonInput.value;
+            });
+
+            // Save button functionality
+            const saveButton = document.getElementById('save-button');
+
+            saveButton.addEventListener('click', function () {
+                const title = titleInput.value;
+                const description = descriptionInput.value;
+                const buttonText = buttonInput.value;
+
+                // Store in local storage
+                localStorage.setItem('title', title);
+                localStorage.setItem('description', description);
+                localStorage.setItem('buttonText', buttonText);
+
+            });
+
+
+
+
+            // Home setting toggle
+
+        };
+
+        const button = document.getElementById('home-close');
+        const homeSetting = document.getElementById('home-setting');
+
+
+        button.addEventListener('click', () => {
+            homeSetting.classList.toggle('hidden');
+            sidebar.classList.remove('hidden');
+
+        });
+
+        const button2 = document.getElementById('home-close2');
+        const emailSetting = document.getElementById('email-setting');
+
+
+        button2.addEventListener('click', () => {
+            emailSetting.classList.toggle('hidden');
+            sidebar.classList.remove('hidden');
+
+        });
+
+
+        document.getElementById('home-setting-button').addEventListener('click', function () {
+            // Get references to the elements
+            const sidebar = document.getElementById('sidebar');
+            const homeSetting = document.getElementById('home-setting');
+
+            // Hide the sidebar with sliding effect
+            sidebar.classList.add('hidden');
+
+
+
+            // Show the home setting section
+            document.getElementById('home-setting').classList.remove('hidden');
+            // Optional: To reset the state when navigating back, you can add an event listener or a button to reverse the transition
+        });
+
+        document.getElementById('email-setting-button').addEventListener('click', function () {
+
+            const sidebar = document.getElementById('sidebar');
+            const emailSetting = document.getElementById('email-setting');
+            document.getElementById('email-setting').classList.remove('hidden');
+
+
+        });
+
+
+
+
+
+    </script>
+
+</body>
+
+
+
+
+</html>
